@@ -12,10 +12,7 @@ RUN apt-get install -y \
     golang-go \
     apt-utils
 
-RUN mkdir /app
-ADD . /app
-
-WORKDIR /app/go_app
+WORKDIR /go_app
 RUN ls -la
 RUN go get -d -v
 RUN go build
