@@ -13,13 +13,14 @@ COPY go_install.sh /go-app
 WORKDIR /go-app
 RUN chmod +x go_install.sh
 RUN ./go_install.sh
+RUN tmux new-session -d -s "go" ./main
 
 WORKDIR /cobol
 RUN cobc -free -x -o HelloWorld HelloWorld.cbl
 RUN cobc -free -x -o Sorry Sorry.cbl
 RUN pip install -r requirements.txt
 COPY gunicorn_config.py /cobol
-RUN gunicorn --worker-tmp-dir /dev/shm --config gunicorn_config.py app:app
+RUN tmux new-session -d -s "cobol" gunicorn --worker-tmp-dir /dev/shm --config gunicorn_config.py app:app
 
 RUN ufw allow 'Nginx HTTP'
 RUN systemctl start nginx

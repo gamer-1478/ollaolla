@@ -13,5 +13,4 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 /usr/local/go/bin/go mod download
-/usr/local/go/bin/go build -o main main.go
-./main
+/usr/local/go/bin/go build main.go
