@@ -16,8 +16,8 @@ RUN mkdir /app
 ADD . /app
 
 WORKDIR /app/go_app
-RUN go mod download
-RUN go build -o main /go_app/main.go
+RUN go mod vendor
+RUN go build
 RUN tmux new-session -d -s "go" .main
 
 WORKDIR /cobol
