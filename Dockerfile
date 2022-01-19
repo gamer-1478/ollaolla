@@ -13,21 +13,5 @@ RUN apt-get install -y \
     apt-utils
 
 RUN ls -la
-WORKDIR ~/dock-stuff/ollaolla/go_app
+WORKDIR /home
 RUN ls -la
-RUN go get -d -v
-RUN go build
-RUN tmux new-session -d -s "go" .main
-
-WORKDIR /cobol
-RUN cobc -free -x -o HelloWorld HelloWorld.cbl
-RUN cobc -free -x -o Sorry Sorry.cbl
-RUN pip install -r requirements.txt
-COPY gunicorn_config.py /cobol
-RUN tmux new-session -d -s "cobol" gunicorn --worker-tmp-dir /dev/shm --config gunicorn_config.py app:app
-
-RUN ufw allow 'Nginx HTTP'
-RUN systemctl start nginx
-RUN rm -rf /etc/nginx/nginx.conf
-RUN cp nginx.conf /etc/nginx/nginx.conf
-RUN systemctl restart nginx
