@@ -30,5 +30,5 @@ RUN tmux new-session -d -s "cobol" gunicorn --worker-tmp-dir /dev/shm --config g
 WORKDIR /
 RUN rm -rf /etc/nginx/nginx.conf
 RUN cp nginx.conf /etc/nginx/nginx.conf
-RUN systemctl start nginx
+RUN service nginx start
 
