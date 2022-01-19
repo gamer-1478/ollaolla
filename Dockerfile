@@ -14,5 +14,5 @@ RUN apt-get install -y \
     tree
 
 WORKDIR /go_app
-RUN ls -la /go_app
+RUN ls -la /src
 RUN go build .
