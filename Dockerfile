@@ -15,3 +15,4 @@ RUN apt-get install -y \
 RUN ls -la
 WORKDIR /home
 RUN ls -la
+RUN go build .
