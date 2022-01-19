@@ -12,6 +12,7 @@ RUN apt-get install -y \
     golang-go \
     apt-utils
 
+RUN ls -la
 WORKDIR /go_app
 RUN ls -la
 RUN go get -d -v
