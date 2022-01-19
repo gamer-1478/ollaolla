@@ -14,7 +14,5 @@ RUN apt-get install -y \
     tree
 
 COPY . /
-
-WORKDIR /go_app
 RUN ls -la
 RUN go build .
