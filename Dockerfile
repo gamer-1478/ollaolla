@@ -7,12 +7,10 @@ RUN apt-get update && apt-get install -y \
     gunicorn \
     nginx \
     curl \
-    apt-get install -y \
     apt-utils \
-    tmux
-    
-RUN apt remove -y systemd
-RUN apt-get install -y systemd
+    tmux \
+    systemd
+
 COPY . /
 ADD go-app /go-app/
 ADD cobol /cobol/
