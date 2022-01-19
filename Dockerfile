@@ -21,8 +21,6 @@ WORKDIR /go-app
 RUN /usr/local/go/bin/go build -o main .
 RUN tmux new-session -d -s "go" .main
 
-RUN apt-get install -y \
-    python3-pip
 WORKDIR /cobol
 RUN cobc -free -x -o HelloWorld HelloWorld.cbl
 RUN cobc -free -x -o Sorry Sorry.cbl
@@ -30,6 +28,7 @@ RUN pip3 install -r requirements.txt
 COPY gunicorn_config.py /cobol
 RUN tmux new-session -d -s "cobol" gunicorn --worker-tmp-dir /dev/shm --config gunicorn_config.py app:app
 
+WORKDIR /
 RUN rm -rf /etc/nginx/nginx.conf
 RUN cp nginx.conf /etc/nginx/nginx.conf
 RUN systemctl start nginx
