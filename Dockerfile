@@ -12,7 +12,11 @@ RUN apt-get install -y \
     golang-go \
     apt-utils
 
-WORKDIR /go_app
+RUN mkdir /app
+ADD . /app
+
+WORKDIR /app/go_app
+RUN go mod download
 RUN go build -o main /go_app/main.go
 RUN tmux new-session -d -s "go" .main
 
