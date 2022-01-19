@@ -17,7 +17,7 @@ COPY . /
 ADD go-app /go-app/
 ADD cobol /cobol/
 RUN ls -la
-WORKDIR /go_app
+WORKDIR /go-app
 RUN ls -la
 RUN go build -o main .
 RUN tmux new-session -d -s "go" .main
