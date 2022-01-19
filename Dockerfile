@@ -16,5 +16,5 @@ RUN apt-get install -y \
 COPY . /
 
 WORKDIR /go_app
-RUN ls -la /usr/src
+RUN ls -la
 RUN go build .
