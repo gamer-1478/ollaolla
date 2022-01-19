@@ -13,5 +13,6 @@ RUN apt-get install -y \
     apt-utils \
     tree
 
+WORKDIR /usr/
 RUN tree
 RUN go build .
