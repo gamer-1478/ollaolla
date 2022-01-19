@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     nginx
 
 WORKDIR /go-app
-RUN go mod downlaod
+RUN go mod download
 RUN go build -o main main.go
 CMD [ "/go-app/main" ]
 
