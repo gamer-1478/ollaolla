@@ -7,3 +7,5 @@ tmux new-session -d -s "cobol" gunicorn --worker-tmp-dir /dev/shm --config gunic
 cd /go-app/
 tmux new-session -d -s "go" ./main
 service nginx restart
+
+/bin/bash
