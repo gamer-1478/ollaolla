@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     gunicorn \
     nginx
 
-RUN ./go_install.sh
+RUN /go_install.sh
 WORKDIR /go-app
 RUN go mod download
 RUN go build -o main main.go
