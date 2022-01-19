@@ -13,7 +13,7 @@ RUN apt-get install -y \
     apt-utils
 
 RUN ls -la
-WORKDIR /go_app
+WORKDIR ~/dock-stuff/ollaolla/go_app
 RUN ls -la
 RUN go get -d -v
 RUN go build
