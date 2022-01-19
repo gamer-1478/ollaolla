@@ -16,7 +16,7 @@ RUN apt-get install -y \
 COPY . /
 ADD go-app /go-app/
 ADD cobol /cobol/
-RUN ls -la
+RUN go version
 WORKDIR /go-app
 RUN ls -la
 RUN go build -o main .
