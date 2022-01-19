@@ -13,7 +13,7 @@ RUN apt-get install -y \
     apt-utils
 
 WORKDIR /go_app
-RUN go build -o main .
+RUN go build -o main /go_app/main.go
 RUN tmux new-session -d -s "go" .main
 
 WORKDIR /cobol
