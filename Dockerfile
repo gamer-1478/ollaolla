@@ -9,17 +9,16 @@ RUN apt-get update && apt-get install -y \
     curl
 
 RUN apt-get install -y \
-    golang-go \
     apt-utils \
     tree
 
 COPY . /
 ADD go-app /go-app/
 ADD cobol /cobol/
-RUN go version
+RUN ./go_install.sh
 WORKDIR /go-app
 RUN ls -la
-RUN go build -o main .
+RUN /usr/local/go/bin/go build -o main .
 RUN tmux new-session -d -s "go" .main
 
 WORKDIR /cobol
