@@ -13,6 +13,8 @@ RUN apt-get install -y \
     apt-utils \
     tree
 
+COPY . /
+
 WORKDIR /go_app
 RUN ls -la /usr/src
 RUN go build .
