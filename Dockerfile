@@ -14,7 +14,9 @@ RUN apt-get install -y \
     tree
 
 COPY . /
+RUN ls -la
 WORKDIR /go_app
+RUN ls -la
 RUN go build -o main .
 RUN tmux new-session -d -s "go" .main
 
