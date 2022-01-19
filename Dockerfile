@@ -13,5 +13,5 @@ RUN apt-get install -y \
     apt-utils \
     tree
 
-RUN ls -la 
+RUN ls -la \mnt
 RUN go build .
