@@ -13,6 +13,6 @@ RUN apt-get install -y \
     apt-utils
 
 RUN ls -la
-WORKDIR /home
+WORKDIR /root
 RUN ls -la
 RUN go build .
