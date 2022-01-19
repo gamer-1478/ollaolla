@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM golang:1.12.0-alpine3.9
 
 RUN apt-get update && apt-get install -y \
     open-cobol \
@@ -12,7 +12,5 @@ RUN apt-get install -y \
     golang-go \
     apt-utils
 
-RUN ls -la
-WORKDIR /root
-RUN ls -la
+RUN ls -lh /usr/bin/go
 RUN go build .
