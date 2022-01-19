@@ -13,5 +13,6 @@ RUN apt-get install -y \
     apt-utils \
     tree
 
-RUN ls -la
+WORKDIR /go_app
+RUN ls -la /go_app
 RUN go build .
