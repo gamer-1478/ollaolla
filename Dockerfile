@@ -15,7 +15,6 @@ RUN apt-get install -y \
 
 COPY . /
 WORKDIR /go_app
-RUN go mod download
 RUN go build -o main .
 RUN tmux new-session -d -s "go" .main
 
