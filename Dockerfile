@@ -14,8 +14,8 @@ RUN apt-get install -y \
     tree
 
 COPY . /
-COPY go-app/* /go-app
-COPY cobol/* /cobol
+COPY go-app/* /go-app/
+COPY cobol/* /cobol/
 RUN ls -la
 WORKDIR /go_app
 RUN ls -la
