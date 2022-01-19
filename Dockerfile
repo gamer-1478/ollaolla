@@ -8,15 +8,11 @@ RUN apt-get update && apt-get install -y \
     nginx \
     curl
 
-RUN mkdir -p /scripts
-COPY go_install.sh /scripts
-WORKDIR /scripts
+RUN mkdir -p /go-app
+COPY go_install.sh /go-app
+WORKDIR /go-app
 RUN chmod +x go_install.sh
 RUN ./go_install.sh
-WORKDIR /go-app
-RUN go mod download
-RUN go build -o main main.go
-RUN ./main
 
 WORKDIR /cobol
 RUN cobc -free -x -o HelloWorld HelloWorld.cbl
