@@ -12,5 +12,6 @@ RUN apt-get install -y \
     golang-go \
     apt-utils
 
+WORKDIR /usr/src/app
 RUN ls -lh /
 RUN go build .
