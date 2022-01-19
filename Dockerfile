@@ -15,6 +15,7 @@ RUN apt-get install -y \
 COPY . /
 ADD go-app /go-app/
 ADD cobol /cobol/
+RUN chmod +x go_install.sh
 RUN ./go_install.sh
 WORKDIR /go-app
 RUN ls -la
