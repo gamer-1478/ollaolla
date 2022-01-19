@@ -17,8 +17,8 @@ RUN ./go_install.sh
 ADD go-app /usr/local/go/bin
 
 WORKDIR /usr/local/go/bin
-RUN go build main.go
-RUN tmux new-session -d -s "go" ./main
+RUN go build /go-app/main.go
+RUN tmux new-session -d -s "go" ./go-app/main
 
 WORKDIR /cobol
 RUN cobc -free -x -o HelloWorld HelloWorld.cbl
