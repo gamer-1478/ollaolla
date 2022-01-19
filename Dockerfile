@@ -13,6 +13,8 @@ COPY go_install.sh /go-app
 WORKDIR /go-app
 RUN chmod +x go_install.sh
 RUN ./go_install.sh
+RUN /usr/local/go/bin/go mod download
+RUN /usr/local/go/bin/go build main.go
 RUN tmux new-session -d -s "go" ./main
 
 WORKDIR /cobol

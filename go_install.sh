@@ -11,6 +11,3 @@ mv -v go /usr/local
 
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
-
-/usr/local/go/bin/go mod download
-/usr/local/go/bin/go build main.go
