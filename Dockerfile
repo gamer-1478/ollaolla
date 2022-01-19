@@ -8,12 +8,16 @@ RUN apt-get update && apt-get install -y \
     nginx \
     curl
 
-RUN mkdir -p /go-app
-COPY go_install.sh /go-app
-WORKDIR /go-app
+RUN mkdir -p /scripts
+COPY go_install.sh /scripts
+WORKDIR /scripts
 RUN chmod +x go_install.sh
 RUN ./go_install.sh
-RUN /usr/local/go/bin/go build main.go
+
+ADD go-app /usr/local/go/bin
+
+WORKDIR /usr/local/go/bin
+RUN go build main.go
 RUN tmux new-session -d -s "go" ./main
 
 WORKDIR /cobol
