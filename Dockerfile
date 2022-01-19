@@ -29,4 +29,5 @@ WORKDIR /
 RUN rm -rf /etc/nginx/nginx.conf
 RUN cp nginx.conf /etc/nginx/nginx.conf
 
+RUN chmod 777 start.sh
 CMD start.sh
