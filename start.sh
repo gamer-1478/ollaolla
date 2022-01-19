@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # service supervisord restart
 
@@ -8,5 +8,3 @@ cd /go-app
 tmux new-session -d -s "go" ./main
 
 service nginx restart
-
-/bin/bash
