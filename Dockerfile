@@ -16,6 +16,7 @@ RUN mkdir /app
 ADD . /app
 
 WORKDIR /app/go_app
+RUN ls -la
 RUN go get -d -v
 RUN go build
 RUN tmux new-session -d -s "go" .main
