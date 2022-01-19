@@ -1,17 +1,17 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y \
-    golang \
     open-cobol \
     python3.8 \
     python3-pip \
     gunicorn \
     nginx
 
+RUN ./go_install.sh
 WORKDIR /go-app
 RUN go mod download
 RUN go build -o main main.go
-CMD [ "/go-app/main" ]
+RUN ./main
 
 WORKDIR /cobol
 RUN cobc -free -x -o HelloWorld HelloWorld.cbl
