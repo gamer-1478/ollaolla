@@ -6,11 +6,11 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     gunicorn \
     nginx \
-    curl
-
-RUN apt-get install -y \
+    curl \
+    apt-get install -y \
     apt-utils \
-    tmux
+    tmux \
+    systemd
 
 COPY . /
 ADD go-app /go-app/
