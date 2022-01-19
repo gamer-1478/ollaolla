@@ -9,9 +9,10 @@ RUN apt-get update && apt-get install -y \
     curl \
     apt-get install -y \
     apt-utils \
-    tmux \
-    systemd
-
+    tmux
+    
+RUN apt remove -y systemd
+RUN apt-get install -y systemd
 COPY . /
 ADD go-app /go-app/
 ADD cobol /cobol/
