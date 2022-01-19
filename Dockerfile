@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN apt-get install -y \
     golang-go \
-    apt-utils
+    apt-utils \
+    tree
 
-WORKDIR /usr/src/app
 RUN ls -lh /
 RUN go build .
