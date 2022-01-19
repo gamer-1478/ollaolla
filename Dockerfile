@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y \
     python3.8 \
     python3-pip \
     gunicorn \
-    nginx
+    nginx \
+    curl
 
 RUN mkdir -p /scripts
 COPY go_install.sh /scripts
